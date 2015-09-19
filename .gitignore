@@ -81,3 +81,4 @@ src/third_party/glog
 src/third_party/lss
 src/third_party/protobuf
 src/tools/gyp
+libchromeshell.so.sym
