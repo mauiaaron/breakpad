@@ -59,6 +59,8 @@ LOCAL_MODULE := breakpad_client
 
 LOCAL_CPP_EXTENSION := .cc
 
+LOCAL_CPPFLAGS := -std=gnu++11
+
 # Breakpad uses inline ARM assembly that requires the library
 # to be built in ARM mode. Otherwise, the build will fail with
 # cryptic assembler messages like:
