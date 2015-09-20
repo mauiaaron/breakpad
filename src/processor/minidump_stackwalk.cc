@@ -112,7 +112,25 @@ void usage(const char *program_name) {
 
 }  // namespace
 
+#if EMBEDDED_STACKWALKER
+extern "C" int stackwalker_main(const char* minidump, const char* symbolsPath, const bool machineReadable) {
+    int argc = 3;
+
+    const char* args[4] = {
+        "dummy",
+        "-m",
+        minidump,
+        symbolsPath,
+    };
+    const char **argv = &args[1];
+
+    if (machineReadable) {
+        ++argc;
+        argv = &args[0];
+    }
+#else
 int main(int argc, char **argv) {
+#endif
   BPLOG_INIT(&argc, &argv);
 
   if (argc < 2) {
