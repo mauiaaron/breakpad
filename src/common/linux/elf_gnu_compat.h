@@ -36,7 +36,11 @@
 #ifndef COMMON_LINUX_ELF_GNU_COMPAT_H_
 #define COMMON_LINUX_ELF_GNU_COMPAT_H_
 
+#if __APPLE__ && USE_LIBELF
+#include "linux_shims.h"
+#else
 #include <elf.h>
+#endif
 
 // A note type on GNU systems corresponding to the .note.gnu.build-id section.
 #ifndef NT_GNU_BUILD_ID

@@ -35,10 +35,18 @@
 #include "common/linux/dump_symbols.h"
 
 #include <assert.h>
+#if __APPLE__ && USE_LIBELF
+#include "linux_shims.h"
+#else
 #include <elf.h>
+#endif
 #include <errno.h>
 #include <fcntl.h>
+#if __APPLE__ && USE_LIBELF
+// ...
+#else
 #include <link.h>
+#endif
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>

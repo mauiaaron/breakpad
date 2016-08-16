@@ -33,7 +33,11 @@
 #include "common/linux/elf_symbols_to_module.h"
 
 #include <cxxabi.h>
+#if __APPLE__ && USE_LIBELF
+#include "linux_shims.h"
+#else
 #include <elf.h>
+#endif
 #include <string.h>
 
 #include "common/byte_cursor.h"

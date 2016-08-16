@@ -33,6 +33,9 @@
 #include <stddef.h>
 
 #include "third_party/lss/linux_syscall_support.h"
+#if __APPLE__ && USE_LIBELF
+#   include "linux_shims.h"
+#endif
 
 namespace google_breakpad {
 

@@ -33,8 +33,12 @@
 #ifndef COMMON_LINUX_ELFUTILS_H_
 #define COMMON_LINUX_ELFUTILS_H_
 
+#if __APPLE__ && USE_LIBELF
+#include "linux_shims.h"
+#else
 #include <elf.h>
 #include <link.h>
+#endif
 #include <stdint.h>
 
 namespace google_breakpad {

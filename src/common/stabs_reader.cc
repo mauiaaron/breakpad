@@ -32,6 +32,9 @@
 // See stabs_reader.h.
 
 #include "common/stabs_reader.h"
+#if __APPLE__ && USE_LIBELF
+#   include "linux_shims.h"
+#endif
 
 #include <assert.h>
 #include <stab.h>

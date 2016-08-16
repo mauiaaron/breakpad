@@ -55,7 +55,11 @@ extern "C" {
 #define Elf32_Dyn     __bionic_Elf32_Dyn
 #define Elf64_Dyn     __bionic_Elf64_Dyn
 
+#if __APPLE__ && USE_LIBELF
+#include <libelf/libelf.h>
+#else
 #include_next <elf.h>
+#endif
 
 #undef Elf32_Nhdr
 #undef Elf64_Nhdr
